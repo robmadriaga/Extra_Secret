@@ -1,3 +1,4 @@
 faker
 datetime
 flask
+gunicorn
