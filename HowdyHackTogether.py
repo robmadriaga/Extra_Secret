@@ -67,22 +67,19 @@ def generateInformation():
     name, user, email = nameGeneration(bday)
     password = generatePassword()
     return name, user, email, bday, password, address, "https://thispersondoesnotexist.com/image";
-'''
-def writeToFile(name, username, email, birthday, password, address,  image, filename):
-    file = open(filename, "wt")
-    file.write(name+"\n"+username+"\n"+email+"\n"+birthday+"\n"+password+"\n"+address+"\n"+image+"\n")
-    file.close()
-  '''  
+  
 def generateAccount(number):
     
     i = 0
+    accounts = ''
     while i < number:
         name, username, email, birthday, password, address, image = generateInformation()
        # writeToFile(name, username, email, birthday, password, address, image, createFileName())
         i+=1
+        accounts+=('%s \n %s \n %s \n %s \n %s \n %s \n %s \n \n' %(name, username, email, birthday, password, address, image))
 
 
-    return ('%s \n %s \n %s \n %s \n %s \n %s \n %s \n' $(name, username, email, birthday, password, address, image))
+    return accounts
         
 def generateAccountP(number,password):
     i = 0
@@ -90,8 +87,10 @@ def generateAccountP(number,password):
         name, username, email, birthday, p, address, image = generateInformation()
        # writeToFile(name, username, email, birthday, password, address, image, createFileName())
         i+=1
-        
-    return ('%s \n %s \n %s \n %s \n %s \n %s \n %s \n' $(name, username, email, birthday, password, address, image))
+        accounts+=('%s \n %s \n %s \n %s \n %s \n %s \n %s \n \n' %(name, username, email, birthday, password, address, image))
+
+
+    return accounts
 
 def generateBirthday(): 
     today =date.today() #getting the current date
@@ -106,31 +105,7 @@ def generateEmail(username):
     email=username+'@mailnesia.com' #adding the mailing adress to username
 
     return email
-'''
-def createFileName():
 
-    dir_path=os.path.dirname(os.path.realpath(__file__)) #get the directory the python file is located in
-    
-    currentFileNum=0
-
-    fileName='profiles'+str(currentFileNum)+'.txt' #set the name of the file
-
-    filePath=str(dir_path)+'/'+fileName #set the path to where the output file should be
-
-    fileExist=os.path.isfile(filePath) #check if the file exists already
-    while(fileExist): # while a file of the same name exists loop untill   number is reached that doenst have the same name
-
-        currentFileNum=currentFileNum+1 #increment file name
-        
-        fileName='profiles'+str(currentFileNum)+'.txt' #rename file
-        filePath=str(dir_path)+'/'+fileName #set the new path
-
-
-
-        fileExist=os.path.isfile(filePath) #check if it exists
-
-    return fileName 
-'''
 
 random.seed() # seeing the random funciton
-generateAccount(2)
+#print(generateAccount(2))
