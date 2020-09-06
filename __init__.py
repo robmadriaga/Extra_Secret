@@ -3,12 +3,13 @@ import os
 from flask import Flask
 
 import HowdyHackTogether
-
+#todo add imports for all packages in Howdyhacktogether
+#todo make html to test 
 def create_app(test_config=None):
 
     app =Flask(__name__, instance_relative_config=True)
     app.config.from_mapping(
-            SECRET_KEY='dev')
+            SECRET_KEY='dev')#todo chagne dev to random key
 
     if test_config is None:
 
@@ -19,8 +20,7 @@ def create_app(test_config=None):
     except OSError:
         pass
 
-    from . import generator
-    app.register_blueprint(generator.bp)
+
 
     @app.route('/generator', methods=('GET', 'POST'))
     def prompt():
