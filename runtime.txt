@@ -1,1 +1,1 @@
-pip freeze > requirements.txt
+python 3.7.8
