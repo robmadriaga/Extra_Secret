@@ -6,12 +6,16 @@ Created on Sat Sep  5 16:42:20 2020
 """
 
 from faker import Faker
-fake = Faker()
 from random import randrange
 from datetime import date, timedelta #importing date and timedelta for date calculation
 import random #importing random for date generation
-import os
+fake = Faker()
 
+
+random.seed() # seeing the random funciton
+
+#todo add imports for all packages in Howdyhacktogether
+#todo make html to test 
 def generateName():
     name = fake.name()
     return(name)
@@ -76,18 +80,19 @@ def generateAccount(number):
         name, username, email, birthday, password, address, image = generateInformation()
        # writeToFile(name, username, email, birthday, password, address, image, createFileName())
         i+=1
-        accounts+=('%s \n %s \n %s \n %s \n %s \n %s \n %s \n \n' %(name, username, email, birthday, password, address, image))
+        accounts+=('%s , %s , %s , %s , %s , %s , %s ,-------------------------------------------, ' %(name, username, email, birthday, password, address, image))
 
 
     return accounts
         
 def generateAccountP(number,password):
     i = 0
+    accounts = ''
     while i < number:
         name, username, email, birthday, p, address, image = generateInformation()
        # writeToFile(name, username, email, birthday, password, address, image, createFileName())
         i+=1
-        accounts+=('%s \n %s \n %s \n %s \n %s \n %s \n %s \n \n' %(name, username, email, birthday, password, address, image))
+        accounts+=('%s , %s , %s , %s , %s , %s , %s ,-------------------------------------------, ' %(name, username, email, birthday, password, address, image))
 
 
     return accounts
@@ -107,5 +112,4 @@ def generateEmail(username):
     return email
 
 
-random.seed() # seeing the random funciton
 #print(generateAccount(2))
