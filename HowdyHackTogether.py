@@ -67,26 +67,31 @@ def generateInformation():
     name, user, email = nameGeneration(bday)
     password = generatePassword()
     return name, user, email, bday, password, address, "https://thispersondoesnotexist.com/image";
-
+'''
 def writeToFile(name, username, email, birthday, password, address,  image, filename):
     file = open(filename, "wt")
     file.write(name+"\n"+username+"\n"+email+"\n"+birthday+"\n"+password+"\n"+address+"\n"+image+"\n")
     file.close()
-    
+  '''  
 def generateAccount(number):
+    
     i = 0
     while i < number:
         name, username, email, birthday, password, address, image = generateInformation()
-        writeToFile(name, username, email, birthday, password, address, image, createFileName())
+       # writeToFile(name, username, email, birthday, password, address, image, createFileName())
         i+=1
+
+
+    return ('%s \n %s \n %s \n %s \n %s \n %s \n %s \n' $(name, username, email, birthday, password, address, image))
         
 def generateAccountP(number,password):
     i = 0
     while i < number:
         name, username, email, birthday, p, address, image = generateInformation()
-        writeToFile(name, username, email, birthday, password, address, image, createFileName())
+       # writeToFile(name, username, email, birthday, password, address, image, createFileName())
         i+=1
         
+    return ('%s \n %s \n %s \n %s \n %s \n %s \n %s \n' $(name, username, email, birthday, password, address, image))
 
 def generateBirthday(): 
     today =date.today() #getting the current date
@@ -101,7 +106,7 @@ def generateEmail(username):
     email=username+'@mailnesia.com' #adding the mailing adress to username
 
     return email
-
+'''
 def createFileName():
 
     dir_path=os.path.dirname(os.path.realpath(__file__)) #get the directory the python file is located in
@@ -125,6 +130,7 @@ def createFileName():
         fileExist=os.path.isfile(filePath) #check if it exists
 
     return fileName 
+'''
 
 random.seed() # seeing the random funciton
 generateAccount(2)
